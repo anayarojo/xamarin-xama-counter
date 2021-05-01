@@ -1,8 +1,6 @@
-﻿using System;
-using XamaCounter.Data;
+﻿using XamaCounter.Data;
 using XamaCounter.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace XamaCounter
 {
@@ -17,7 +15,7 @@ namespace XamaCounter
                 if (_database == null)
                 {
                     var sqLiteService = DependencyService.Get<ISqLiteService>();
-                    _database = new AppDatabase(fileService.GetLocalFilePath("appDb.db3"));
+                    _database = new AppDatabase(sqLiteService);
                 }
 
                 return _database;
