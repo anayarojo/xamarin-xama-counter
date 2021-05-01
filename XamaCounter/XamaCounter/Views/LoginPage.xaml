@@ -4,14 +4,22 @@
              x:Class="XamaCounter.Views.LoginPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout 
-            HorizontalOptions="Fill" 
-            VerticalOptions="Fill">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Button 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
+                Grid.Column="1" Grid.Row="1"
                 Text="Login"
+                Command="{Binding LoginCommand}"
             />
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
