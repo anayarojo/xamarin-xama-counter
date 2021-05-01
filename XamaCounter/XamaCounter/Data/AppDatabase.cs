@@ -12,14 +12,14 @@ namespace XamaCounter.Data
         public AppDatabase(ISqLiteService sqLiteService)
         {
             _connection = sqLiteService.GetConnectionAsync();
-            _connection.CreateTableAsync<AppState>().Wait();
+            _connection.CreateTableAsync<Session>().Wait();
         }
 
         public async Task<int> SetLogged(bool isLogged)
         {
             if (!(await HasAppStateAsync()))
             {
-                return await _connection.InsertAsync(new AppState()
+                return await _connection.InsertAsync(new Session()
                 {
                     IsLogged = isLogged
                 });
@@ -45,15 +45,15 @@ namespace XamaCounter.Data
 
         private async Task<bool> HasAppStateAsync()
         {
-            var count = await _connection.Table<AppState>()
+            var count = await _connection.Table<Session>()
                 .CountAsync();
 
             return count > 0;
         }
         
-        private async Task<AppState> GetAppStateAsync()
+        private async Task<Session> GetAppStateAsync()
         {
-            return await _connection.Table<AppState>()
+            return await _connection.Table<Session>()
                 .FirstOrDefaultAsync();
         }
     }

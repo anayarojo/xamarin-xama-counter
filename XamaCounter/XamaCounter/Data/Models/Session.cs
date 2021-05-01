@@ -2,7 +2,7 @@
 
 namespace XamaCounter.Data.Models
 {
-    public class AppState
+    public class Session
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

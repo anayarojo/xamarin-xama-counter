@@ -1,5 +1,6 @@
 ﻿using XamaCounter.Data;
 using XamaCounter.Services;
+using XamaCounter.Views;
 using Xamarin.Forms;
 
 namespace XamaCounter
@@ -26,7 +27,7 @@ namespace XamaCounter
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
