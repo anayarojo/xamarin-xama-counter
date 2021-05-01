@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using SQLite;
+﻿using SQLite;
 using XamaCounter.iOS.Services;
 using XamaCounter.Services;
 using XamaCounter.Settings;
@@ -10,6 +8,13 @@ namespace XamaCounter.iOS.Services
 {
     public class SqLiteService : ISqLiteService
     {
+        private readonly FileService _fileService;
+
+        public SqLiteService()
+        {
+            _fileService = new FileService();
+        }
+
         public SQLiteConnection GetConnection()
         {
             return new SQLiteConnection(GetDatabasePath());
@@ -20,18 +25,10 @@ namespace XamaCounter.iOS.Services
             return new SQLiteAsyncConnection(GetDatabasePath());
         }
 
-        private static string GetDatabasePath()
+        private string GetDatabasePath()
         {
             var dbName = GlobalSettings.DB_NAME;
-            var iosPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var dataPath = Path.Combine(iosPath, "..", "Data");
-
-            if (!Directory.Exists(dataPath))
-            {
-                Directory.CreateDirectory(dataPath);
-            }
-
-            return Path.Combine(dataPath, dbName);
+            return _fileService.GetLocalFilePath(dbName);
         }
     }
 }

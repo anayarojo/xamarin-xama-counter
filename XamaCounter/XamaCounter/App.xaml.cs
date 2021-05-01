@@ -16,7 +16,7 @@ namespace XamaCounter
             {
                 if (_database == null)
                 {
-                    var fileService = DependencyService.Get<IFileService>();
+                    var sqLiteService = DependencyService.Get<ISqLiteService>();
                     _database = new AppDatabase(fileService.GetLocalFilePath("appDb.db3"));
                 }
 

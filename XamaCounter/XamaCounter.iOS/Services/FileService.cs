@@ -12,15 +12,17 @@ namespace XamaCounter.iOS.Services
     {
         public string GetLocalFilePath(string fileName)
         {
-            var iosPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var appPath = Path.Combine(iosPath, "..", "Data");
+            var localPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var relativePath = GlobalSettings.LOCAL_PATH_IOS;
 
-            if (!Directory.Exists(appPath))
+            var path = Path.Combine(localPath, relativePath);
+
+            if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(appPath);
+                Directory.CreateDirectory(path);
             }
 
-            return Path.Combine(appPath, fileName);
+            return Path.Combine(path, fileName);
         }
     }
 }

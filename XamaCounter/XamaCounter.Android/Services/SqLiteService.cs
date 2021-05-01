@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using SQLite;
+﻿using SQLite;
 using XamaCounter.Droid.Services;
 using XamaCounter.Services;
 using XamaCounter.Settings;
@@ -10,6 +8,13 @@ namespace XamaCounter.Droid.Services
 {
     public class SqLiteService : ISqLiteService
     {
+        private readonly FileService _fileService;
+
+        public SqLiteService()
+        {
+            _fileService = new FileService();
+        }
+
         public SQLiteConnection GetConnection()
         {
             return new SQLiteConnection(GetDatabasePath());
@@ -20,11 +25,10 @@ namespace XamaCounter.Droid.Services
             return new SQLiteAsyncConnection(GetDatabasePath());
         }
 
-        private static string GetDatabasePath()
+        private string GetDatabasePath()
         {
             var dbName = GlobalSettings.DB_NAME;
-            var androidPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            return Path.Combine(androidPath, dbName);
+            return _fileService.GetLocalFilePath(dbName);
         }
     }
 }

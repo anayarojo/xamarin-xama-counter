@@ -1,16 +1,16 @@
 ﻿using SQLite;
-using XamaCounter.Models;
+using XamaCounter.Data.Models;
 
 namespace XamaCounter.Data
 {
     public class AppDatabase
     {
-        private readonly SQLiteAsyncConnection connection;
+        private readonly SQLiteAsyncConnection _connection;
 
-        public AppDatabase(string dbPath)
+        public AppDatabase(SQLiteAsyncConnection connection)
         {
-            connection = new SQLiteAsyncConnection(dbPath);
-            connection.CreateTableAsync<AppState>().Wait();
+            _connection = connection;
+            _connection.CreateTableAsync<AppState>().Wait();
         }
     }
 }

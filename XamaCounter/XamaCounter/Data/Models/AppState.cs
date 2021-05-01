@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
-namespace XamaCounter.Models
+namespace XamaCounter.Data.Models
 {
     public class AppState
     {

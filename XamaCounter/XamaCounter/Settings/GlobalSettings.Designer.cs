@@ -77,5 +77,32 @@ namespace XamaCounter.Settings {
                 return ResourceManager.GetString("DB_NAME", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /.
+        /// </summary>
+        public static string LOCAL_PATH_ANDROID {
+            get {
+                return ResourceManager.GetString("LOCAL_PATH_ANDROID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ../Data.
+        /// </summary>
+        public static string LOCAL_PATH_IOS {
+            get {
+                return ResourceManager.GetString("LOCAL_PATH_IOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /.
+        /// </summary>
+        public static string LOCAL_PATH_UWP {
+            get {
+                return ResourceManager.GetString("LOCAL_PATH_UWP", resourceCulture);
+            }
+        }
     }
 }

@@ -123,4 +123,13 @@
   <data name="DB_NAME" xml:space="preserve">
     <value>XamaCounterApp.db3</value>
   </data>
+  <data name="LOCAL_PATH_ANDROID" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="LOCAL_PATH_IOS" xml:space="preserve">
+    <value>../Data</value>
+  </data>
+  <data name="LOCAL_PATH_UWP" xml:space="preserve">
+    <value>/</value>
+  </data>
 </root>
