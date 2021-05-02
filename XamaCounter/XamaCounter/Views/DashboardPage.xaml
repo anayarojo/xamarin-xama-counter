@@ -16,18 +16,22 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Column="1" Grid.Row="1">
-                <Button 
-                    Text="Profile"
-                    Command="{Binding NavigateToProfileCommand}"
-                />
-                <Button 
-                    Text="About"
-                    Command="{Binding NavigateToAboutCommand}"
-                />
-                <Button 
-                    Text="Logout"
-                    Command="{Binding LogoutCommand}"
-                />
+                <Label Text="{Binding BackgroundCounter}" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+                <Label Text="{Binding TimerCounter}" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+                <StackLayout Margin="0,15,0,15">
+                    <Button 
+                        Text="Profile"
+                        Command="{Binding NavigateToProfileCommand}"
+                    />
+                    <Button 
+                        Text="About"
+                        Command="{Binding NavigateToAboutCommand}"
+                    />
+                    <Button 
+                        Text="Logout"
+                        Command="{Binding LogoutCommand}"
+                    />
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

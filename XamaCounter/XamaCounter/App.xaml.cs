@@ -1,4 +1,5 @@
-﻿using XamaCounter.Data;
+﻿using Matcha.BackgroundService;
+using XamaCounter.Data;
 using XamaCounter.Services;
 using XamaCounter.Views;
 using Xamarin.Forms;
@@ -32,10 +33,13 @@ namespace XamaCounter
 
         protected override void OnStart()
         {
+            BackgroundAggregatorService.Add(() => new CounterService(10));
+            BackgroundAggregatorService.StartBackgroundService();
         }
 
         protected override void OnSleep()
         {
+            BackgroundAggregatorService.StopBackgroundService();
         }
 
         protected override void OnResume()

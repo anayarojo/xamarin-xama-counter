@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Matcha.BackgroundService.UWP;
 
 namespace XamaCounter.UWP
 {
@@ -20,6 +21,8 @@ namespace XamaCounter.UWP
         public MainPage()
         {
             this.InitializeComponent();
+
+            BackgroundAggregator.Init(this);
 
             LoadApplication(new XamaCounter.App());
         }
